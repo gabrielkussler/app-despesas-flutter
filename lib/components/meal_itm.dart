@@ -1,18 +1,25 @@
+import 'package:apprefeicoes/utils/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:apprefeicoes/models/meal.dart';
 import 'package:flutter/material.dart';
+import 'package:apprefeicoes/utils/app_routes.dart';
 
 class MealItm extends StatelessWidget {
   final Meal meal;
 
   const MealItm(this.meal);
 
-  void _selectMeal() {}
+  void _selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      AppRoutes.MEAL_DETAIL,
+      arguments: meal,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _selectMeal,
+      onTap: () => _selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
