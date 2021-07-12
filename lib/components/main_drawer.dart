@@ -1,21 +1,22 @@
+import 'package:apprefeicoes/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-
-  Widget _createItem(IconData icon, String label) {
-    return ListTile(
+  Widget _createItem(IconData icon, String label, Function() onTap) {
+  return ListTile(
       leading: Icon(
         icon,
         size: 26,
       ),
-      title: Text(label,
+      title: Text(
+        label,
         style: TextStyle(
           fontFamily: 'RobotoCondensed',
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 
@@ -28,22 +29,27 @@ class MainDrawer extends StatelessWidget {
             height: 120,
             width: double.infinity,
             padding: EdgeInsets.all(20),
-            color: Theme
-                .of(context)
-                .accentColor,
+            color: Theme.of(context).accentColor,
             alignment: Alignment.bottomRight,
-            child: Text('Vamos Cozinhar ?',
+            child: Text(
+              'Vamos Cozinhar ?',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w900,
-                color: Theme
-                    .of(context)
-                    .primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
-          _createItem(Icons.restaurant, 'Refeições'),
-          _createItem(Icons.settings, 'Configurações'),
+          _createItem(
+            Icons.restaurant,
+            'Refeições',
+              () => Navigator.of(context).pushNamed(AppRoutes.HOME),
+          ),
+          _createItem(
+            Icons.settings,
+            'Configurações',
+                () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
+          ),
         ],
       ),
     );
