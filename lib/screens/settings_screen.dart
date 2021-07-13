@@ -3,6 +3,12 @@ import '../components/main_drawer.dart';
 import 'package:apprefeicoes/models/settings.dart';
 
 class SettingScreen extends StatefulWidget {
+
+  final Function(Settings) onSettingsChanged;
+
+  const SettingScreen(this.onSettingsChanged);
+
+
   @override
   State<SettingScreen> createState() => _SettingScreenState();
 }
@@ -21,8 +27,10 @@ class _SettingScreenState extends State<SettingScreen> {
       title: Text(title),
       subtitle: Text(subtitle),
       value: value,
-      onChanged: onChanged,
-    );
+      onChanged: (value) { onChanged(value);
+      widget.onSettingsChanged(settings);
+
+      });
   }
 
   @override

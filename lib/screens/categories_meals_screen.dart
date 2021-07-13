@@ -7,7 +7,7 @@ class CategoriesMealsScreen extends StatelessWidget {
 
   final List<Meal> meals;
 
-  const CategoriesMealsScreen(this.meals)
+  const CategoriesMealsScreen(this.meals);
 
   @override
   Widget build(BuildContext context) {
