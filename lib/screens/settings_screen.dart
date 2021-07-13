@@ -12,16 +12,16 @@ class _SettingScreenState extends State<SettingScreen> {
   var settings = Settings();
 
   Widget _createSwitch(
-    String title,
-    String subtitle,
-    bool value,
-    Function onChanged,
-  ) {
+      String title,
+      String subtitle,
+      bool value,
+      Function(bool) onChanged,
+      ) {
     return SwitchListTile.adaptive(
-      value: value,
-      onChanged: onChanged,
       title: Text(title),
       subtitle: Text(subtitle),
+      value: value,
+      onChanged: onChanged,
     );
   }
 
