@@ -6,7 +6,10 @@ class SettingScreen extends StatefulWidget {
 
   final Function(Settings) onSettingsChanged;
 
-  const SettingScreen(this.onSettingsChanged);
+ final Settings settings;
+
+
+  const SettingScreen(this.onSettingsChanged, this.settings);
 
 
   @override
@@ -14,8 +17,13 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  Settings settings = Settings();
 
-  var settings = Settings();
+  @override
+  void initState() {
+    super.initState();
+    settings = widget.settings;
+  }
 
   Widget _createSwitch(
       String title,
